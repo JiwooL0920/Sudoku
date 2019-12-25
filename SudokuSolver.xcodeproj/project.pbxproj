@@ -13,6 +13,7 @@
 		801FAFB723B2B55F00A05064 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 801FAFB523B2B55F00A05064 /* Main.storyboard */; };
 		801FAFB923B2B56100A05064 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 801FAFB823B2B56100A05064 /* Assets.xcassets */; };
 		801FAFBC23B2B56100A05064 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 801FAFBA23B2B56100A05064 /* LaunchScreen.storyboard */; };
+		801FAFC423B2BD2700A05064 /* algorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801FAFC323B2BD2700A05064 /* algorithm.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		801FAFB823B2B56100A05064 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		801FAFBB23B2B56100A05064 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		801FAFBD23B2B56100A05064 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		801FAFC323B2BD2700A05064 /* algorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = algorithm.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				801FAFB823B2B56100A05064 /* Assets.xcassets */,
 				801FAFBA23B2B56100A05064 /* LaunchScreen.storyboard */,
 				801FAFBD23B2B56100A05064 /* Info.plist */,
+				801FAFC323B2BD2700A05064 /* algorithm.swift */,
 			);
 			path = SudokuSolver;
 			sourceTree = "<group>";
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				801FAFB423B2B55F00A05064 /* ViewController.swift in Sources */,
+				801FAFC423B2BD2700A05064 /* algorithm.swift in Sources */,
 				801FAFB023B2B55F00A05064 /* AppDelegate.swift in Sources */,
 				801FAFB223B2B55F00A05064 /* SceneDelegate.swift in Sources */,
 			);
