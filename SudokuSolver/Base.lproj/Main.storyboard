@@ -15,8 +15,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sudoku" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PBo-JC-ER8">
-                                <rect key="frame" x="138" y="111" width="138" height="45.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sudoku" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PBo-JC-ER8">
+                                <rect key="frame" x="0.0" y="111" width="414" height="45.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="38"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1004,6 +1004,14 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HeJ-PQ-ucm">
+                                <rect key="frame" x="176" y="724" width="62" height="36"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="Delete"/>
+                                <connections>
+                                    <action selector="delete_tap" destination="BYZ-38-t0r" eventType="touchUpInside" id="LjH-Ue-o9B"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -1013,13 +1021,16 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gS3-4f-ohm" secondAttribute="trailing" constant="170" id="CVs-Gi-Xyq"/>
                             <constraint firstItem="gS3-4f-ohm" firstAttribute="top" secondItem="PBo-JC-ER8" secondAttribute="bottom" constant="28.5" id="FlU-BG-jz1"/>
                             <constraint firstItem="8sY-Mw-ptf" firstAttribute="top" secondItem="yDz-H4-pfR" secondAttribute="bottom" constant="45" id="Heg-qz-ptl"/>
-                            <constraint firstItem="PBo-JC-ER8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="138" id="Jen-Vr-RHZ"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="PBo-JC-ER8" secondAttribute="trailing" constant="138" id="MWI-XR-CPN"/>
+                            <constraint firstItem="PBo-JC-ER8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Jen-Vr-RHZ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="PBo-JC-ER8" secondAttribute="trailing" id="MWI-XR-CPN"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yDz-H4-pfR" secondAttribute="trailing" constant="32" id="PJS-4T-ETb"/>
                             <constraint firstItem="8sY-Mw-ptf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="98" id="UeW-jI-kbM"/>
+                            <constraint firstItem="HeJ-PQ-ucm" firstAttribute="top" secondItem="yDz-H4-pfR" secondAttribute="bottom" constant="1" id="Z1e-hm-oVS"/>
                             <constraint firstItem="PBo-JC-ER8" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="67" id="ZDi-VR-JFd"/>
                             <constraint firstItem="yDz-H4-pfR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="eqW-fi-k48"/>
                             <constraint firstItem="gS3-4f-ohm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="170" id="g7N-tu-S3y"/>
+                            <constraint firstItem="HeJ-PQ-ucm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="176" id="oxz-u7-IT5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="HeJ-PQ-ucm" secondAttribute="trailing" constant="176" id="rHc-JI-ZSh"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8sY-Mw-ptf" secondAttribute="trailing" constant="98" id="vGi-T6-mtL"/>
                             <constraint firstItem="xBN-JC-F7l" firstAttribute="top" secondItem="gS3-4f-ohm" secondAttribute="bottom" constant="68" id="yNe-Qb-v8n"/>
                         </constraints>
@@ -1116,6 +1127,8 @@
                         <outlet property="button7" destination="Zqp-L9-lAO" id="QiM-Id-phQ"/>
                         <outlet property="button8" destination="njN-6e-TWy" id="TEA-Q1-pXI"/>
                         <outlet property="button9" destination="Fj4-xn-ez1" id="0fJ-fX-3ha"/>
+                        <outlet property="delete" destination="HeJ-PQ-ucm" id="Ysy-3f-S4g"/>
+                        <outlet property="headTitle" destination="PBo-JC-ER8" id="wJl-7w-YGg"/>
                         <outlet property="time" destination="7uk-KV-TLR" id="Yh2-Jd-QyQ"/>
                     </connections>
                 </viewController>

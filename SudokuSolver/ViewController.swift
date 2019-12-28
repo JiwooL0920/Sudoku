@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     //UI
+    @IBOutlet weak var headTitle: UILabel!
     @IBOutlet weak var time: UILabel!
     //Button Actions
     @IBAction func solveButton() {
@@ -462,44 +463,43 @@ class ViewController: UIViewController {
     @IBOutlet weak var button7: UIButton!
     @IBOutlet weak var button8: UIButton!
     @IBOutlet weak var button9: UIButton!
+    @IBOutlet weak var delete: UIButton!
     
     //Number button action
     @IBAction func button1_tap() {
-        selectedBlock!.setTitle("1", for: .normal)
         updateMatrix(n: 1)
     }
     @IBAction func button2_tap() {
-        selectedBlock!.setTitle("2", for: .normal)
         updateMatrix(n: 2)
     }
     @IBAction func button3_tap() {
-        selectedBlock!.setTitle("3", for: .normal)
         updateMatrix(n: 3)
     }
     @IBAction func button4_tap() {
-        selectedBlock!.setTitle("4", for: .normal)
         updateMatrix(n: 4)
     }
     @IBAction func button5_tap() {
-        selectedBlock!.setTitle("5", for: .normal)
         updateMatrix(n: 5)
     }
     @IBAction func button6_tap() {
-        selectedBlock!.setTitle("6", for: .normal)
         updateMatrix(n: 6)
     }
     @IBAction func button7_tap() {
-        selectedBlock!.setTitle("7", for: .normal)
         updateMatrix(n: 7)
     }
     @IBAction func button8_tap() {
-        selectedBlock!.setTitle("8", for: .normal)
         updateMatrix(n: 8)
     }
     @IBAction func button9_tap() {
-        selectedBlock!.setTitle("9", for: .normal)
         updateMatrix(n: 9)
     }
+    @IBAction func delete_tap() {
+        updateMatrix(n: 0)
+        selectedBlock!.setTitle("ㅁ", for: .normal)
+        selectedBlock?.setTitleColor(.blue, for: .normal)
+    }
+    
+    
     
     //Selected block
     var selectedBlock : UIButton? = nil
@@ -511,7 +511,6 @@ class ViewController: UIViewController {
     func tapBlock(block : UIButton) {
         previouslyTappedBlock = selectedBlock
         previouslyTappedBlock?.setTitleColor(.lightGray, for: .normal)
-        block.setTitleColor(.blue ,for: .normal)
         selectedBlock = block
         enableNumPad()
         redOrBlue()
@@ -522,12 +521,6 @@ class ViewController: UIViewController {
         return Int(button.titleLabel!.text!)!
     }
     
-    //Function to tell if the block is valid
-//    func isBlockValid(index : [Int]) -> Bool {
-//
-//    }
-    
-
 
     //Function to enable/disable number pad
     func disableNumPad() {
@@ -558,20 +551,45 @@ class ViewController: UIViewController {
     func updateMatrix(n : Int) {
         let x : Int = index![0]
         let y : Int = index![1]
-//        matrix[x][y].setTitleColor(.blue, for: .normal)
         matrix[x][y].setTitle(String(n), for: .normal)
-        if (!isValid(board : myBoard, position: index!, n: n)) {
-            print("invalid")
-            matrix[x][y].setTitleColor(.red, for: .normal)
-        } else {
-            matrix[x][y].setTitleColor(.blue, for: .normal)
-        }
         myBoard[x][y] = n
+        redOrBlue()
+        //check if board is full, if so, check if it's correct
+        if isBoardFull() {
+            if isCorrect() {
+                headTitle.text = "Correct!"
+            }
+        }
+        //check on console
         print(myBoard)
         print(index!)
         print(n)
-
-//        setBoard()
+    }
+    
+    func isBoardFull() -> Bool {
+        for x in 0...myBoard.count-1 {
+            for y in 0...myBoard.count-1 {
+                if (myBoard[x][y] == 0) {
+                    return false
+                }
+            }
+        }
+        return true
+    }
+    
+    func isCorrect() -> Bool {
+        if !isBoardFull() {
+            return false
+        }
+        for x in 0...myBoard.count-1 {
+            for y in 0...myBoard.count-1 {
+                let n : Int = myBoard[x][y]
+                if (!isValid(board: myBoard, position: [x,y], n: n)) {
+                    return false
+                }
+            }
+        }
+        return true
     }
     
     //func to check if display blue or red
@@ -579,7 +597,7 @@ class ViewController: UIViewController {
         let x : Int = index![0]
         let y : Int = index![1]
         let val : Int = myBoard[x][y]
-        if (!isValid(board : myBoard, position: index!, n: val)) {
+        if (!isValid(board : myBoard, position: index!, n: val) && val != 0) {
             print("invalid")
             matrix[x][y].setTitleColor(.red, for: .normal)
         } else {
