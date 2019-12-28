@@ -71,13 +71,13 @@ func find_empty(board : [[Int]]) -> [Int]? {
 func isValid(board : [[Int]], position : [Int], n : Int) -> Bool {
     //Check row
     for i in 0...board.count-1 {
-        if (board[position[0]][1] == n && position[1] != i) {
+        if (board[position[0]][i] == n && position[1] != i) {
             return false
         }
     }
     //Check column
     for i in 0...board.count-1 {
-        if (board[i][position[1]] == n && position[1] != i) {
+        if (board[i][position[1]] == n && position[0] != i) {
             return false
         }
     }
@@ -87,7 +87,7 @@ func isValid(board : [[Int]], position : [Int], n : Int) -> Bool {
     for i in box_y*3...box_y*3+2 {
         for j in box_x*3...box_x*3 + 2 {
             let arr : [Int] = [i,j]
-            if (board[i][j] == n && arr == position) {
+            if (board[i][j] == n && arr != position) {
                 return false
             }
         }
